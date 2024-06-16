@@ -19,5 +19,6 @@ Route::get('/for-sale', [SaleController::class, 'index'])->name('for-sale');
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
+Route::post('/contacts', [ContactsController::class, 'store']);
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
 Route::post('/callback', [CallbackController::class, 'store']);

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.ico') }}">
     <script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="{{ asset('js/contacts.js') }}"></script>
 </head>
 <body>
 <div class="container">
@@ -44,11 +45,12 @@
         <div class="contact-right">
             <h2>Свяжитесь с нами</h2>
             <div class="consultation-form">
-                <form action="#">
-                    <input type="text" placeholder="Имя">
-                    <input type="email" placeholder="Почта">
-                    <input type="tel" placeholder="Телефон">
-                    <textarea placeholder="Сообщение"></textarea>
+                <form id="contactForm" action="{{ url('/contacts') }}" method="post">
+                    @csrf
+                    <input type="text" name="name" placeholder="Имя" required>
+                    <input type="email" name="email" placeholder="Почта" required>
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                    <textarea name="message" placeholder="Сообщение" required></textarea>
                     <div class="form-buttons">
                         <button type="submit">Отправить</button>
                         <button type="reset">Очистить</button>
