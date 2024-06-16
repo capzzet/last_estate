@@ -22,5 +22,7 @@ Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 Route::post('/contacts', [ContactsController::class, 'store']);
-Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews.index');
+Route::post('/reviews', [ReviewsController::class, 'store'])->name('reviews.store');
+
 Route::post('/callback', [CallbackController::class, 'store']);
