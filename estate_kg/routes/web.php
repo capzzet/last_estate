@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\CallbackController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/consultation', [ConsultationController::class, 'store']);
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 Route::get('/buildings', [BuildingsController::class, 'index'])->name('buildings');
 Route::get('/for-sale', [SaleController::class, 'index'])->name('for-sale');

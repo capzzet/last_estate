@@ -51,11 +51,14 @@
         <div class="right-content">
             <div class="consultation-form">
                 <h2>Консультация</h2>
-                <form action="#" method="post">
+                <form id="consultationForm" @submit.prevent="submitConsultationForm">
+                    @csrf
                     <input type="text" name="name" placeholder="Ваше имя" required>
                     <input type="tel" name="phone" placeholder="Ваш телефон" required>
                     <button type="submit">Получить консультацию</button>
                 </form>
+                <div id="consultationSuccessMessage" class="success-message">
+                </div>
             </div>
         </div>
     </div>
@@ -128,6 +131,61 @@
 
 <script src="{{ asset('js/vue.js') }}"></script>
 <script src="{{ asset('js/slider.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('consultationForm');
+        const successMessage = document.getElementById('consultationSuccessMessage');
 
+        console.log('Script loaded');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            console.log('Form submitted');
+
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone')
+            };
+
+            console.log('Data:', data);
+
+            fetch('/consultation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    console.log('Response received');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data:', data);
+                    if (data.success) {
+                        successMessage.textContent = 'Форма успешно отправлена!';
+                        successMessage.style.display = 'block';
+                        successMessage.style.color = 'green';
+                        form.reset();
+
+                        // Скрыть сообщение через 3 секунды
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 3000);
+                    } else {
+                        alert('Ошибка при отправке формы: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    alert('Произошла ошибка при отправке формы.');
+                });
+        });
+    });
+
+</script>
 </body>
 </html>
