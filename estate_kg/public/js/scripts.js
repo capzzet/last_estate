@@ -28,9 +28,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
         callbackForm.addEventListener("submit", function(event) {
             event.preventDefault();
-            successMessage.style.display = "block";
-            callbackForm.style.display = "none";
-            setTimeout(closeModal, 3000);
+
+            const formData = new FormData(callbackForm);
+
+            fetch(callbackForm.action, {
+                method: callbackForm.method,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'Accept': 'application/json',
+                },
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Успешно!') {
+                        successMessage.style.display = "block";
+                        callbackForm.style.display = "none";
+                        setTimeout(closeModal, 3000);
+                    } else {
+                        alert('Ошибка при отправке формы.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка при отправке формы.');
+                });
         });
 
         function closeModal() {

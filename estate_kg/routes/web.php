@@ -9,6 +9,7 @@ use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CallbackController;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -19,3 +20,4 @@ Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contacts', [ContactsController::class, 'index'])->name('contacts');
 Route::get('/reviews', [ReviewsController::class, 'index'])->name('reviews');
+Route::post('/callback', [CallbackController::class, 'store']);

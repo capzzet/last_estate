@@ -2,20 +2,23 @@
     <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <h2>Заказать звонок</h2>
-        <form id="callbackForm">
+        <form id="callbackForm" action="{{ url('/callback') }}" method="post">
+            @csrf
             <div class="form-group">
                 <label for="name">Ваше имя:</label>
-                <input type="text" id="name" name="name" placeholder="Имя" required>
+                <input type="text" name="name" placeholder="Имя" required>
             </div>
             <div class="form-group">
                 <label for="phone">Ваш телефон:</label>
-                <input type="tel" id="phone" name="phone"placeholder="Телефон" required>
+                <input type="tel" name="phone" placeholder="Телефон" required>
             </div>
             <button type="submit">Отправить</button>
         </form>
         <div id="successMessage" style="display:none;">Успешно!</div>
     </div>
 </div>
+
+
 <header class="header">
     <div class="header-left">
         <a href="{{ url('/') }}"><img src="{{ asset('images/logo1.png') }}" alt="Логотип" class="logo-icon"></a>

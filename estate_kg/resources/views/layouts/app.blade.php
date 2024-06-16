@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="{{ asset('js/scripts.js') }}" defer></script>
 </head>
 <body>
