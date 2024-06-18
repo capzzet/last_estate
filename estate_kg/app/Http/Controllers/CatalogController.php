@@ -40,6 +40,28 @@ class CatalogController extends Controller
         if ($request->filled('address')) {
             $query->where('address', 'like', '%' . $request->address . '%');
         }
+        if ($request->filled('house_floors_from')) {
+            $query->where('total_floors', '>=', $request->house_floors_from);
+        }
+        if ($request->filled('house_floors_to')) {
+            $query->where('total_floors', '<=', $request->house_floors_to);
+        }
+        if ($request->filled('balcony') && $request->balcony != 'any') {
+            $query->where('balcony', $request->balcony == 'yes');
+        }
+        if ($request->filled('bathroom') && $request->bathroom != 'any') {
+            $query->where('bathroom', $request->bathroom);
+        }
+        if ($request->filled('view') && $request->view != 'any') {
+            $query->where('view', $request->view);
+        }
+        if ($request->filled('renovation') && $request->renovation != 'any') {
+            $query->where('renovation', $request->renovation);
+        }
+        if ($request->filled('house_type') && $request->house_type != 'any') {
+            $query->where('house_type', $request->house_type);
+        }
+
         $advertisements = $query->get();
 
         $propertyTypes = [

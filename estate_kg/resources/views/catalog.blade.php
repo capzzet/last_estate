@@ -22,10 +22,6 @@
                     </select>
                 </div>
                 <div class="filter">
-                    <label for="city">Город</label>
-                    <input type="text" id="city" name="city" value="{{ request('city') }}">
-                </div>
-                <div class="filter">
                     <label for="min-price">Минимальная цена</label>
                     <input type="number" id="min-price" name="min_price" value="{{ request('min_price') }}">
                 </div>
@@ -34,19 +30,13 @@
                     <input type="number" id="max-price" name="max_price" value="{{ request('max_price') }}">
                 </div>
                 <div class="filter">
+                    <label for="city">Город</label>
+                    <input type="text" id="city" name="city" value="{{ request('city') }}">
+                </div>
+                <div class="filter">
                     <label for="address">Введите адрес</label>
                     <input type="text" id="address" name="address" placeholder="Поиск...">
                 </div>
-
-                <div class="filter">
-                    <label for="min-area">Минимальная площадь</label>
-                    <input type="number" id="min-area" name="min_area" value="{{ request('min_area') }}">
-                </div>
-                <div class="filter">
-                    <label for="max-area">Максимальная площадь</label>
-                    <input type="number" id="max-area" name="max_area" value="{{ request('max_area') }}">
-                </div>
-
             </div>
             <button type="submit" class="search-button">Найти</button>
             <button type="button" class="search-button advanced-search">
@@ -58,18 +48,81 @@
             <div class="filters">
                 <div class="filter">
                     <label for="rooms">Количество комнат</label>
-                    <input type="number" id="rooms" name="rooms" value="{{ request('rooms') }}">
+                    <select id="rooms" name="rooms">
+
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4+">4</option>
+                        <option value="studio">Студия</option>
+                    </select>
                 </div>
                 <div class="filter">
                     <label for="floor">Этаж</label>
                     <input type="number" id="floor" name="floor" value="{{ request('floor') }}">
                 </div>
+                <div class="filter">
+                    <label for="min-area">Минимальная площадь</label>
+                    <input type="number" id="min-area" name="min_area" value="{{ request('min_area') }}">
+                </div>
+                <div class="filter">
+                    <label for="max-area">Максимальная площадь</label>
+                    <input type="number" id="max-area" name="max_area" value="{{ request('max_area') }}">
+                </div>
+                <div class="filter">
+                    <label for="adv-house-floors">Этажей в доме</label>
+                    <input type="text" id="house_floors_from" name="house_floors_from" placeholder="От">
+                    <input type="text" id="house_floors_to" name="house_floors_to" placeholder="До">
+                </div>
+                <div class="filter">
+                    <label for="adv-balcony">Балкон</label>
+                    <select id="adv-balcony" name="balcony">
+                        <option value="any">Неважно</option>
+                        <option value="yes">Да</option>
+                        <option value="no">Нет</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="adv-bathroom">Санузел</label>
+                    <select id="adv-bathroom" name="bathroom">
+                        <option value="any">Неважно</option>
+                        <option value="combined">Совмещенный</option>
+                        <option value="separate">Раздельный</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="adv-view">Вид из окон</label>
+                    <select id="adv-view" name="view">
+                        <option value="any">Неважно</option>
+                        <option value="street">На улицу</option>
+                        <option value="courtyard">Во двор</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="adv-renovation">Ремонт</label>
+                    <select id="adv-renovation" name="renovation">
+                        <option value="any">Неважно</option>
+                        <option value="euro">Евроремонт</option>
+                        <option value="cosmetic">Косметический</option>
+                        <option value="no">Без ремонта</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label for="adv-house-type">Тип дома</label>
+                    <select id="adv-house-type" name="house_type">
+                        <option value="any">Неважно</option>
+                        <option value="brick">Кирпичный</option>
+                        <option value="panel">Панельный</option>
+                        <option value="monolithic">Монолитный</option>
+                        <option value="wood">Деревянный</option>
+                    </select>
+                </div>
+
+            </div>
                 <div class="buttons">
                     <button type="button" class="search-button" id="apply-filters">Поиск</button>
                     <button type="button" class="search-button" id="reset-filters">Очистить</button>
                 </div>
-
-            </div>
             </div>
     </form>
 
