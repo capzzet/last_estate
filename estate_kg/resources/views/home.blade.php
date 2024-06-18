@@ -171,7 +171,7 @@
                         successMessage.style.color = 'green';
                         form.reset();
 
-                        // Скрыть сообщение через 3 секунды
+
                         setTimeout(() => {
                             successMessage.style.display = 'none';
                         }, 3000);

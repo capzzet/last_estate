@@ -86,8 +86,8 @@
                     <label for="adv-bathroom">Санузел</label>
                     <select id="adv-bathroom" name="bathroom">
                         <option value="any">Неважно</option>
-                        <option value="combined">Совмещенный</option>
-                        <option value="separate">Раздельный</option>
+                        <option value="yes">Да</option>
+                        <option value="no">Нет</option>
                     </select>
                 </div>
                 <div class="filter">
@@ -186,7 +186,9 @@
                                 </a>
                             </div>
                         </div>
+                        <a href="{{ route('catalog.show', ['id' => $advertisement->id]) }}">
                         <button>Подробнее</button>
+                        </a>
                     </div>
                 @endif
             </div>
@@ -196,7 +198,16 @@
 
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.history.replaceState) {
+                const url = new URL(window.location);
+                url.search = '';
+                window.history.replaceState({path: url.href}, '', url.href);
+            }
+        });
 
+    </script>
 
     <script src="{{ asset('js/catalog.js') }}"></script>
 @endsection

@@ -74,4 +74,26 @@ class CatalogController extends Controller
             'propertyTypes' => $propertyTypes,
         ]);
     }
+    public function show($id)
+    {
+        $propertyTypes = [
+            'flat' => 'Квартира',
+            'house' => 'Дом',
+            'land' => 'Участок',
+            'no' => 'Нет',
+            'yes' => 'Да',
+            'street' => 'На улицу',
+            'any' => 'Неважно',
+            'courtyard' => 'Во двор',
+            'euro' => 'Евроремонт',
+            'cosmetic' => 'Косметический',
+            'brick' => 'Кирпичный',
+            'panel' => 'панельный',
+            'monolithic' => 'Монолитный',
+            'wood' => "Деревянный",
+
+        ];
+        $advertisement = Advertisement::with(['agent', 'images'])->findOrFail($id);
+        return view('show', compact('advertisement'),['propertyTypes' => $propertyTypes]);
+    }
 }
