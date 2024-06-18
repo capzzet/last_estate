@@ -23,15 +23,15 @@
                 </div>
                 <div class="filter">
                     <label for="min-price">Минимальная цена</label>
-                    <input type="number" id="min-price" name="min_price" value="{{ request('min_price') }}">
+                    <input type="number" placeholder="От" id="min-price" name="min_price" value="{{ request('min_price') }}">
                 </div>
                 <div class="filter">
                     <label for="max-price">Максимальная цена</label>
-                    <input type="number" id="max-price" name="max_price" value="{{ request('max_price') }}">
+                    <input type="number" placeholder="До" id="max-price" name="max_price" value="{{ request('max_price') }}">
                 </div>
                 <div class="filter">
                     <label for="city">Город</label>
-                    <input type="text" id="city" name="city" value="{{ request('city') }}">
+                    <input type="text" id="city" placeholder="Город..." name="city" value="{{ request('city') }}">
                 </div>
                 <div class="filter">
                     <label for="address">Введите адрес</label>
@@ -49,7 +49,7 @@
                 <div class="filter">
                     <label for="rooms">Количество комнат</label>
                     <select id="rooms" name="rooms">
-
+                        <option value="any">Неважно</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -59,15 +59,15 @@
                 </div>
                 <div class="filter">
                     <label for="floor">Этаж</label>
-                    <input type="number" id="floor" name="floor" value="{{ request('floor') }}">
+                    <input type="number" id="floor" placeholder="Этаж" name="floor" value="{{ request('floor') }}">
                 </div>
                 <div class="filter">
                     <label for="min-area">Минимальная площадь</label>
-                    <input type="number" id="min-area" name="min_area" value="{{ request('min_area') }}">
+                    <input type="number"  placeholder="От" id="min-area" name="min_area" value="{{ request('min_area') }}">
                 </div>
                 <div class="filter">
                     <label for="max-area">Максимальная площадь</label>
-                    <input type="number" id="max-area" name="max_area" value="{{ request('max_area') }}">
+                    <input type="number"  placeholder="До" id="max-area" name="max_area" value="{{ request('max_area') }}">
                 </div>
                 <div class="filter">
                     <label for="adv-house-floors">Этажей в доме</label>
