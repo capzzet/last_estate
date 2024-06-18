@@ -8,9 +8,9 @@ class CatalogController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Advertisement::with(['agent', 'images']); // Загрузка данных агента и изображений
+        $query = Advertisement::with(['agent', 'images']);
 
-        // Логика фильтрации объявлений
+
         if ($request->filled('property_type')) {
             $query->where('property_type', $request->property_type);
         }
@@ -69,8 +69,14 @@ class CatalogController extends Controller
 
         $advertisements = $query->get();
 
+        $propertyTypes = [
+            'flat' => 'Квартира',
+            'house' => 'Дом',
+            'land' => 'Участок'
+        ];
         return view('catalog', [
-            'advertisements' => $advertisements
+            'advertisements' => $advertisements,
+            'propertyTypes' => $propertyTypes,
         ]);
     }
 }

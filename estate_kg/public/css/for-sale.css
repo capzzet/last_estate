@@ -1,11 +1,14 @@
-.why-agent, .steps {
+.why-agent {
     padding: 40px 0;
     text-align: center;
 }
-
+.steps{
+    padding-bottom: 40px;
+    text-align: center;
+}
 .why-agent h2, .steps h2 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .reasons {

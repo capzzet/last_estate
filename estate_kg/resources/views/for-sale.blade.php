@@ -17,22 +17,22 @@
         <h2>Зачем вам агент?</h2>
         <div class="reasons">
             <div class="reason" id="reason1">
-                <img src="images/icon1.svg" alt="Icon 1">
+                <img src="{{ asset('images/prich1.svg') }}" alt="Icon 1">
                 <h3>Причина 1</h3>
                 <p>Опыт и знания рынка</p>
             </div>
             <div class="reason" id="reason2">
-                <img src="images/icon2.svg" alt="Icon 2">
+                <img src="{{ asset('images/prich2.svg') }}" alt="Icon 2">
                 <h3>Причина 2</h3>
                 <p>Экономия времени и сил</p>
             </div>
             <div class="reason" id="reason3">
-                <img src="images/icon3.svg" alt="Icon 3">
+                <img src="{{ asset('images/prich3.svg') }}" alt="Icon 3">
                 <h3>Причина 3</h3>
                 <p>Юридическая безопасность</p>
             </div>
             <div class="reason" id="reason4">
-                <img src="images/icon4.svg" alt="Icon 4">
+                <img src="{{ asset('images/prich4.svg') }}" alt="Icon 4">
                 <h3>Причина 4</h3>
                 <p>Переговоры и сделки</p>
             </div>

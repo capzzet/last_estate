@@ -54,23 +54,6 @@
     <div class="advanced-search-form">
         <div class="filters">
             <div class="filter">
-                <label for="adv-rooms">Комнат</label>
-                <select id="adv-rooms">
-                    <option value="any">Неважно</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4+</option>
-                </select>
-            </div>
-            <div class="filter">
-                <label for="adv-price">Цена</label>
-                <div class="price-range">
-                    <input type="number" id="adv-price-from" placeholder="От">
-                    <input type="number" id="adv-price-to" placeholder="До">
-                </div>
-            </div>
-            <div class="filter">
                 <label for="adv-floor">Этаж</label>
                 <div class="floor-range">
                     <input type="number" id="adv-floor-from" placeholder="От">
@@ -90,14 +73,6 @@
                     <input type="number" id="adv-area-from" placeholder="От м²">
                     <input type="number" id="adv-area-to" placeholder="До м²">
                 </div>
-            </div>
-            <div class="filter">
-                <label for="adv-living-area">Жилая площадь</label>
-                <input type="number" id="adv-living-area" placeholder="До м²">
-            </div>
-            <div class="filter">
-                <label for="adv-kitchen-area">Площадь кухни</label>
-                <input type="number" id="adv-kitchen-area" placeholder="До м²">
             </div>
             <div class="filter">
                 <label for="adv-balcony">Балкон</label>
@@ -176,7 +151,7 @@
             </div>
 
             <div class="advertisement-details">
-                <h2>{{ $advertisement->area }}м², {{ $advertisement->property_type }}, {{ $advertisement->floor }}/{{ $advertisement->total_floors }} этаж</h2>
+                <h2>{{ $advertisement->area }}м², {{ $propertyTypes[$advertisement->property_type] ?? $advertisement->property_type }}, {{ $advertisement->floor }}/{{ $advertisement->total_floors }} этаж</h2>
                 <div class="price-details">
                     <div class="agent-price">
                         {{ number_format($advertisement->price, 0, '', ' ') }} ⃀

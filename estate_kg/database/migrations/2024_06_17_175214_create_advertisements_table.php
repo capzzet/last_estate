@@ -15,24 +15,24 @@ class CreateAdvertisementsTable extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
-            $table->string('property_type'); // Тип недвижимости
-            $table->string('deal_type'); // Купить/Снять
-            $table->string('city'); // Город
-            $table->string('address'); // Адрес
-            $table->integer('rooms'); // Комнатность
-            $table->integer('price_from'); // Цена (от)
-            $table->integer('price_to'); // Цена (до)
-            $table->integer('floor_from'); // Этаж (от)
-            $table->integer('floor_to'); // Этаж (до)
-            $table->integer('total_floors'); // Этажей в доме
-            $table->integer('area_from'); // Площадь (от)
-            $table->integer('area_to'); // Площадь (до)
-            $table->string('balcony'); // Балкон
-            $table->string('bathroom'); // Санузел
-            $table->string('view'); // Вид из окон
-            $table->string('renovation'); // Ремонт
-            $table->string('house_type'); // Тип дома
-            $table->text('description'); // Описание
+            $table->string('property_type');
+            $table->string('deal_type');
+            $table->string('city');
+            $table->string('address');
+            $table->integer('rooms');
+            $table->integer('price_from');
+            $table->integer('price_to');
+            $table->integer('floor_from');
+            $table->integer('floor_to');
+            $table->integer('total_floors');
+            $table->integer('area_from');
+            $table->integer('area_to');
+            $table->string('balcony');
+            $table->string('bathroom');
+            $table->string('view');
+            $table->string('renovation');
+            $table->string('house_type');
+            $table->text('description');
             $table->timestamps();
         });
     }
