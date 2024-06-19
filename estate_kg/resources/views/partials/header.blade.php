@@ -43,7 +43,6 @@
     <ul>
         <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Главная</a></li>
         <li><a href="{{ url('catalog') }}" class="{{ request()->is('catalog') ? 'active' : '' }}">Каталог</a></li>
-        <li><a href="{{ url('buildings') }}" class="{{ request()->is('buildings') ? 'active' : '' }}">Новостройки</a></li>
         <li><a href="{{ url('for-sale') }}" class="{{ request()->is('for-sale') ? 'active' : '' }}">Сдать/Продать</a></li>
         <li><a href="{{ url('services') }}" class="{{ request()->is('services') ? 'active' : '' }}">Услуги</a></li>
         <li><a href="{{ url('about') }}" class="{{ request()->is('about') ? 'active' : '' }}">О компании</a></li>

@@ -17,7 +17,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/consultation', [ConsultationController::class, 'store']);
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 
-Route::get('/buildings', [BuildingsController::class, 'index'])->name('buildings');
 Route::get('/for-sale', [SaleController::class, 'index'])->name('for-sale');
 Route::get('/services', [ServicesController::class, 'index'])->name('services');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -40,4 +39,5 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+Route::get('/catalog/search', [CatalogController::class, 'search'])->name('catalog.search');
 
